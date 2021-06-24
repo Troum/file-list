@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <files-list :files-priority="filesPriority" :files-active="filesActive"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FilesList from './components/FilesList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FilesList
+  },
+  data () {
+    return {
+      filesPriority: {
+        fileA: 20,
+        fileB: 10,
+        fileC: 0,
+      },
+      filesActive: [
+        'fileA',
+        'fileB'
+      ]
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
